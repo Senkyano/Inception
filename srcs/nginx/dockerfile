@@ -10,3 +10,4 @@ COPY ./config/nginx.config /etc/nginx/nginx.config
 
 EXPOSE	443
 
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
