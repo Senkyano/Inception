@@ -6,8 +6,9 @@ RUN RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 	-out /etc/ssl/certs/certificate.crt \
 	-subj "/C=/ST=/L=/O=/OU=/CN="
 
-COPY ./config/nginx.config /etc/nginx/nginx.config
+# COPY ./config/nginx.config /etc/nginx/nginx.config
 
 EXPOSE	443
 
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+# CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["yes"]
