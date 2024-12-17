@@ -10,3 +10,4 @@ EXPOSE 3306
 # RUN chown -R mysql:mysql /var/lib/mysql
 
 # ENTRYPOINT ["./setup_db.sh"]
+CMD [ "sleep", "infinity" ]
