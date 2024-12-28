@@ -1,5 +1,10 @@
 services:
   nginx:
-    build: ./srcs/nginx
-    volumes:
-    env_file: ./srcs/.env
+    build: ./requirements/nginx/
+    container_name: nginx_container
+    ports:
+      - "443:443"
+    # env_file: ./srcs/.env
+    networks:
+      inception:
+        driver: bridge
