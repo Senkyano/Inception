@@ -1,4 +1,24 @@
 services:
+  mariadb:
+    build: ./requirements/mariadb/
+    container_name: mariadb_container
+    expose: "3306"
+    env_file: .env
+    volumes:
+      - "db:/var/lib/mysql"
+    networks:
+      - inception
+
+  wordpress:
+    build: ./requirements/wordpress/
+    container_name: wordpress_container
+    expose: "9000"
+    depends_on:
+      - mariadb
+    volumes:
+    networks:
+      - inception
+
   nginx:
     build: ./requirements/nginx/
     container_name: nginx_container
@@ -7,6 +27,24 @@ services:
     networks:
       - inception
     # env_file: ./srcs/.env
+  
+volumes:
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/home/rihoy/data/wordpress"
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/home/rihoy/data/db"
+
 networks:
   inception:
     driver: bridge
+
+
+secret:
