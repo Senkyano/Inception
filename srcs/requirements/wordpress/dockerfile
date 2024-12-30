@@ -3,8 +3,8 @@ FROM	debian:bullseye
 RUN		apt update -y && apt-get install php-fpm curl php-mysql -y
 
 COPY	./tools/prompt.sh ./prompt.sh
-RUN		chmod +x ./promppt.sh
+RUN		chmod +x ./prompt.sh
 
 EXPOSE 9000
 
-CMD [ "prompt.sh" ]
+ENTRYPOINT [ "./prompt.sh" ]

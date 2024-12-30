@@ -1,41 +1,57 @@
 services:
   mariadb:
     build: ./requirements/mariadb/
+    # tag du container
     container_name: mariadb_container
+    restart: always
+    # Ouvre le port du container pour les autres container
     expose: "3306"
     env_file: .env
+    secrets:
+      - db_password
+      - db_root_password
+      - db_username
     volumes:
-      - "db:/var/lib/mysql"
+      - "DB:/var/lib/mysql"
     networks:
       - inception
 
   wordpress:
     build: ./requirements/wordpress/
     container_name: wordpress_container
+    restart: always
+    # Ouvre le port du container pour les autres container
     expose: "9000"
     depends_on:
       - mariadb
     volumes:
+      - "Wordpress:/var/www/wordpress"
     networks:
       - inception
 
   nginx:
     build: ./requirements/nginx/
     container_name: nginx_container
+    restart: always
+    # Ouvre le port du container et le connect aux ports du pc acutel
     ports:
       - "443:443"
+    depends_on:
+      - wordpress
+    volumes:
+      - "Wordpress:/var/www/wordpress"
     networks:
       - inception
     # env_file: ./srcs/.env
-  
+
 volumes:
-  wordpress:
+  Wordpress:
     driver: local
     driver_opts:
       type: none
       o: bind
       device: "/home/rihoy/data/wordpress"
-  db:
+  DB:
     driver: local
     driver_opts:
       type: none
@@ -48,3 +64,9 @@ networks:
 
 
 secret:
+  db_password:
+    file: ../secret/db_password.txt
+  db_root_password:
+    file: ../secret/db_root_password.txt
+  db_username:
+    file: ../secret/db_username.txt
