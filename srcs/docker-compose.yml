@@ -27,7 +27,7 @@ services:
     volumes:
       - "Wordpress:/var/www/wordpress"
     networks:
-      - inception
+  #     - inception
 
   nginx:
     build: ./requirements/nginx/
@@ -42,7 +42,7 @@ services:
       - "Wordpress:/var/www/wordpress"
     networks:
       - inception
-    # env_file: ./srcs/.env
+    env_file: ./srcs/.env
 
 volumes:
   Wordpress:
@@ -63,7 +63,7 @@ networks:
     driver: bridge
 
 
-secret:
+secrets:
   db_password:
     file: ../secret/db_password.txt
   db_root_password:
