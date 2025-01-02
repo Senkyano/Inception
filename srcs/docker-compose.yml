@@ -44,7 +44,7 @@ services:
       - "Wordpress:/var/www/wordpress"
     networks:
       - inception
-    env_file: ./srcs/.env
+    env_file: .env
 
 volumes:
   Wordpress:
