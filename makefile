@@ -6,7 +6,7 @@
 #    By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/01 22:17:41 by rihoy             #+#    #+#              #
-#    Updated: 2025/01/02 21:00:45 by rihoy            ###   ########.fr        #
+#    Updated: 2025/01/02 21:49:27 by rihoy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,5 +28,5 @@ make_directory :
 	
 
 clean_directory :
-	rm -fr /home/rihoy/data/*
+	sudo rm -fr /home/rihoy/data/*
 	
