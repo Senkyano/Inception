@@ -44,10 +44,9 @@ services:
       - "wordpress:/var/www/wordpress"
     networks:
       - inception
-    env_file: .env
 
 volumes:
-  Wordpress:
+  wordpress:
     driver: local
     driver_opts:
       type: none
