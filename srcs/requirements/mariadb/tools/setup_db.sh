@@ -6,7 +6,7 @@ DB_PASSWORD=$(cat /run/secrets/db_password)
 DB_ROOT_PASSWORD=$(cat /run/secrets/db_root_password)
 
 # Modification de l'interface reseaux pour permettre la connexion a partir de n'importe quel reseaux
-sed -i 's/bind-address\s*=\s*127\.0\.0\.1/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
+# sed -i 's/bind-address\s*=\s*127\.0\.0\.1/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # Demarrer le service
 service mariadb start
@@ -34,4 +34,5 @@ service mariadb stop
 sleep 2
 
 # Lancier mariadb pour qu'il tourne en arriere plan
+# exec mysqld_safe --bind-address=0.0.0.0
 exec mysqld_safe

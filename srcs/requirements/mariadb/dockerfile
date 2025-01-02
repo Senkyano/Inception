@@ -9,7 +9,5 @@ EXPOSE 3306
 
 RUN chown -R mysql:mysql /var/lib/mysql
 
-USER mysql
-
 # execution d'un bash
 ENTRYPOINT ["./setup_db.sh"]
