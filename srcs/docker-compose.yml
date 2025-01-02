@@ -13,7 +13,7 @@ services:
       - db_root_password
       - db_username
     volumes:
-      - "DB:/var/lib/mysql"
+      - "mariadb:/var/lib/mysql"
     networks:
       - inception
 
@@ -52,8 +52,8 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: "/home/rihoy/data/Wordpress"
-  DB:
+      device: "/home/rihoy/data/wordpress"
+  mariadb:
     driver: local
     driver_opts:
       type: none
