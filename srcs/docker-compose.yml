@@ -41,13 +41,13 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - "Wordpress:/var/www/wordpress"
+      - "wordpress:/var/www/wordpress"
     networks:
       - inception
     env_file: .env
 
 volumes:
-  wordpress:
+  Wordpress:
     driver: local
     driver_opts:
       type: none
