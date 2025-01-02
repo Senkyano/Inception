@@ -52,13 +52,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: "/home/rihoy/data/wordpress"
+      device: "/home/rihoy/data/Wordpress"
   DB:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: "/home/rihoy/data/db"
+      device: "/home/rihoy/data/mariadb"
 
 networks:
   inception:
