@@ -8,15 +8,15 @@ sed -i 's/listen\s*=\s*\/run\/php\/php7.4-fpm.sock/listen = 0.0.0.0:9000/' /etc/
 sed -i 's/;pm.status_path = \/status/pm.status_path = \/php_fpm_status/' /etc/php/7.4/fpm/pool.d/www.conf
 
 
-cd /var/www/html
+cd /var/www/html/wordpress
 
-wp core download --allow-root --path=/var/www/html/wordpress
+wp core download --allow-root
 
-wp config create --allow-root --path=/var/www/html/wordpress --dbname=${DB_DATABASE} --dbuser=${DB_USERNAME} --dbpass=${DB_PASSWORD} --dbhost=mariadb
+wp config create --allow-root --dbname=${DB_DATABASE} --dbuser=${DB_USERNAME} --dbpass=${DB_PASSWORD} --dbhost=mariadb
 
-wp core install --allow-root --path=/var/www/html/wordpress --url=https://${DOMAIN_NAME} --title=${WP_TITLE} --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
+wp core install --allow-root --url=https://${DOMAIN_NAME} --title=${WP_TITLE} --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
 
-wp user create --allow-root --path=/var/www/html/wordpress ${WP_USER} ${WP_EMAIL} --user_pass=${WP_PASSWD} --role=author
+wp user create --allow-root ${WP_USER} ${WP_EMAIL} --user_pass=${WP_PASSWD} --role=author
 
 chmod -R 755 /var/www/html/wordpress
 
