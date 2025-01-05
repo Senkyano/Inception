@@ -21,6 +21,6 @@ wp core install --allow-root --path=/var/www/html/wordpress --url=https://${DOMA
 
 wp user create --allow-root --path=/var/www/html/wordpress ${WP_USER} ${WP_EMAIL} --user_pass=${WP_PASSWD} --role=author
 
-chmod -R 777 /var/www/html/wordpress
+chmod -R 755 /var/www/html/wordpress
 
 php-fpm7.4 -F -R -y /etc/php/7.4/fpm/php-fpm.conf
