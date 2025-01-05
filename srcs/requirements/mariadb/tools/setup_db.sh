@@ -15,14 +15,14 @@ service mariadb start
 sleep 2
 
 # Configuration
-if mariadb -e "USE $DB_DATANAME;" 2> /dev/null; then
+if mariadb -e "USE $DB_DATABASE;" 2> /dev/null; then
 	echo 'mariadb: DATA NAME Already exist'
 else
-	mysql -u root -e "CREATE DATABASE $DB_DATANAME;"
+	mysql -u root -e "CREATE DATABASE $DB_DATABASE;"
 
 	mysql -u root -e "CREATE USER '$DB_USERNAME'@'%' IDENTIFIED BY '$DB_PASSWORD';"
-	mysql -u root -e "GRANT ALL PRIVILEGES ON $DB_DATANAME.* TO '$DB_USERNAME'@'%' IDENTIFIED BY '$DB_PASSWORD' WITH GRANT OPTION;"
-	mysql -u root -e "GRANT ALL PRIVILEGES ON $DB_DATANAME.* TO 'root'@'%' IDENTIFIED BY '$DB_ROOT_PASSWORD' WITH GRANT OPTION;"
+	mysql -u root -e "GRANT ALL PRIVILEGES ON $DB_DATABASE.* TO '$DB_USERNAME'@'%' IDENTIFIED BY '$DB_PASSWORD' WITH GRANT OPTION;"
+	mysql -u root -e "GRANT ALL PRIVILEGES ON $DB_DATABASE.* TO 'root'@'%' IDENTIFIED BY '$DB_ROOT_PASSWORD' WITH GRANT OPTION;"
 
 	mysql -u root -e "FLUSH PRIVILEGES;"
 fi
