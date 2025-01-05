@@ -8,10 +8,6 @@ services:
     expose: 
       - "3306"
     env_file: .env
-    secrets:
-      - db_password
-      - db_root_password
-      - db_username
     volumes:
       - "mariadb:/var/lib/mysql"
     networks:
@@ -29,6 +25,7 @@ services:
       - "wordpress:/var/www/wordpress"
     networks:
       - inception
+    env_file: .env
 
   nginx:
     build: ./requirements/nginx/
