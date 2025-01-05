@@ -17,10 +17,10 @@ wp core download --allow-root --path=/var/www/html/wordpress
 
 wp config create --allow-root --path=/var/www/html/wordpress --dbname=${DB_DATABASE} --dbuser=${DB_USERNAME} --dbpass=${DB_PASSWORD} --dbhost=mariadb
 
-# chmod 777 /var/www/html/*
-
-wp core install --allow-root --path=/var/www/html/wordpress --url=https://"$DOMAIN_NAME" --title="$WP_TITLE" --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
+wp core install --allow-root --path=/var/www/html/wordpress --url=https://${DOMAIN_NAME} --title=${WP_TITLE} --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
 
 wp user create --allow-root --path=/var/www/html/wordpress ${WP_USER} ${WP_EMAIL} --user_pass=${WP_PASSWD} --role=author
+
+chmod -R 777 /var/www/html/wordpress
 
 php-fpm7.4 -F -R -y /etc/php/7.4/fpm/php-fpm.conf
