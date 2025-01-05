@@ -1,7 +1,4 @@
 #!/bin/bash
-DB_USERNAME=$(cat /run/secrets/db_username.txt)
-DB_PASSWORD=$(cat /run/secrets/db_password.txt)
-DB_ROOT_PASSWORD=$(cat /run/secrets/db_root_password.txt)
 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar

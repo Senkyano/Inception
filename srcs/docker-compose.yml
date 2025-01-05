@@ -61,11 +61,3 @@ volumes:
 networks:
   inception:
     driver: bridge
-
-secrets:
-  db_password:
-    file: ../secret/db_password.txt
-  db_root_password:
-    file: ../secret/db_root_password.txt
-  db_username:
-    file: ../secret/db_username.txt

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Lecture secret
-DB_USERNAME=$(cat /run/secrets/db_username.txt)
-DB_PASSWORD=$(cat /run/secrets/db_password.txt)
-DB_ROOT_PASSWORD=$(cat /run/secrets/db_root_password.txt)
-
 # Modification de l'interface reseaux pour permettre la connexion a partir de n'importe quel reseaux
 # sed -i 's/bind-address\s*=\s*127\.0\.0\.1/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 
