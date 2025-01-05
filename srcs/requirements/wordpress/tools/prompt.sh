@@ -9,6 +9,7 @@ sed -i 's/;pm.status_path = \/status/pm.status_path = \/php_fpm_status/' /etc/ph
 
 
 cd /var/www/html/wordpress
+chmod -R 755 /var/www/html/wordpress
 
 wp core download --allow-root
 
@@ -18,6 +19,5 @@ wp core install --allow-root --url=https://${DOMAIN_NAME} --title=${WP_TITLE} --
 
 wp user create --allow-root ${WP_USER} ${WP_EMAIL} --user_pass=${WP_PASSWD} --role=author
 
-chmod -R 755 /var/www/html/wordpress
 
 php-fpm7.4 -F -R -y /etc/php/7.4/fpm/php-fpm.conf
