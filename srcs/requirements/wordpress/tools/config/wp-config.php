@@ -46,7 +46,7 @@ define('WP_SITEURL', 'https://rihoy.42.fr');
 
 // ** Debugging mode ** //
 // Set this to true to display error notices during development.
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 // ** Absolute path to the WordPress directory ** //
 if (!defined('ABSPATH')) {
