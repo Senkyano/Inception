@@ -21,7 +21,6 @@ services:
     build: ./requirements/wordpress/
     container_name: wordpress_container
     restart: always
-    # Ouvre le port du container pour les autres container
     expose:
       - "9000"
     depends_on:
@@ -62,7 +61,6 @@ volumes:
 networks:
   inception:
     driver: bridge
-
 
 secrets:
   db_password:
