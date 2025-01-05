@@ -28,14 +28,14 @@
 // ** Authentication Unique Keys and Salts ** //
 // These unique keys and salts should be replaced with randomly generated values.
 // You can generate them from https://api.wordpress.org/secret-key/1.1/salt/
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         'Si5$vzT~.}Vc+!wG.4-mi&vxWx4-P{P|F8DMK}F21I&_K$WKf`3Vb9US)2]avnh-');
+define('SECURE_AUTH_KEY',  'jNq|/O;VXe=)anv]-Ju1cJ|4nW,P=E3-D8}iCb|J&aT:TRq)u4E-jz]?2q)x[T(C');
+define('LOGGED_IN_KEY',    '|ikz)W8&Xf0oN<TG+>u84#|]*b|,7TnWr| 5~XfkZx_r[$rJSe3u<76jt!YSo}gO');
+define('NONCE_KEY',        '}hC8K-`yjT0j6wO+Mz141<ek.?M6=xT|H]EkFu!sqJ?]Z/l|XG9as09WO#FTxzwq');
+define('AUTH_SALT',        'J-}-D>~{J9-XBC]<!-6qx}dv}mVX.Z@#Q>MHqqf0;6&XUuD^3m8/If4 ?&=H2J.l');
+define('SECURE_AUTH_SALT', '/08oU&q9t:|xXKu.[vy0og@Z*yP[jc/0$z?;jR`~()|^~<~m71UOl,Y(aYfw$DNx');
+define('LOGGED_IN_SALT',   'TrDyr6aGJ 8)^p ^;M<rCFwHp:;t0Vb|39*cVTWvg}&fPVXdXoe NUe|S5_,yJ+v');
+define('NONCE_SALT',       'zt:gElEuMv7b|Q0Y=Qi(?E8s_n:s-qa+=;$WGx[<|-`:mL7$Y[kd;[GuM!UmJ#BV');
 
 // ** WordPress Database Table prefix ** //
 $table_prefix = 'wp_';  // Change this prefix to enhance security if needed
