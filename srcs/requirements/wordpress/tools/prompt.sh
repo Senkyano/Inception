@@ -12,7 +12,7 @@ sed -i 's/;pm.status_path = \/status/pm.status_path = \/php_fpm_status/' /etc/ph
 cd /var/www/html/wordpress
 chmod -R 755 /var/www/html/wordpress
 
-wp core download --allow-root
+wp core download --allow-root --path=/var/www/html/wordpress
 
 wp config create --allow-root --dbname=${DB_DATABASE} --dbuser=${DB_USERNAME} --dbpass=${DB_PASSWORD} --dbhost=mariadb
 
