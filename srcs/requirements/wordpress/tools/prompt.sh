@@ -17,15 +17,10 @@ wp core download --allow-root --path=/var/www/html/wordpress
 
 wp config create --allow-root --path=/var/www/html/wordpress --dbname=${DB_DATABASE} --dbuser=${DB_USERNAME} --dbpass=${DB_PASSWORD} --dbhost=mariadb
 
-chmod 777 /var/www/html/*
+# chmod 777 /var/www/html/*
 
 wp core install --allow-root --path=/var/www/html/wordpress --url=https://"$DOMAIN_NAME" --title="$WP_TITLE" --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
 
 wp user create --allow-root --path=/var/www/html/wordpress ${WP_USER} ${WP_EMAIL} --user_pass=${WP_PASSWD} --role=author
-
-wp term create category 'Science' --description='Science' --allow-root --path=/var/www/html/wordpress --slug=science
-
-wp post create --allow-root --path=/var/www/html/wordpress --post_author=llarue --post_title='RECOGNIZING METEOROLOGICAL SIGNIFICANCE' --post_name='recognizing-meterological-significance' --post_category='Science' --post_status=publish 
-wp post create --allow-root --path=/var/www/html/wordpress --post_author=llarue --post_title='THE SCIENCE BEHIND RAINBOWS' --post_name='the-science-behind-rainbows' --post_category='Science' --post_status=publish
 
 php-fpm7.4 -F -R -y /etc/php/7.4/fpm/php-fpm.conf

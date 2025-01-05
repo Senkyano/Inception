@@ -9,4 +9,7 @@ RUN		chmod +x ./prompt.sh
 
 EXPOSE 9000
 
+COPY ./tools/config/wp-config.php /var/www/html/wordpress
+RUN		chmod 644 /var/www/html/wordpress/wp-config.php
+
 ENTRYPOINT [ "./prompt.sh" ]
