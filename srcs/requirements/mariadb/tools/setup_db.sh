@@ -15,9 +15,9 @@ service mariadb start
 sleep 2
 
 # Configuration
-# if mariadb -e "USE $DB_DATABASE;" 2> /dev/null; then
-# 	echo 'mariadb: DATA NAME Already exist'
-# else
+if mariadb -e "USE $DB_DATABASE;" 2> /dev/null; then
+	echo 'mariadb: DATA NAME Already exist'
+else
 	mysql -u root -e "CREATE DATABASE $DB_DATABASE;"
 
 	mysql -u root -e "CREATE USER '$DB_USERNAME'@'%' IDENTIFIED BY '$DB_PASSWORD';"
@@ -25,7 +25,7 @@ sleep 2
 	mysql -u root -e "GRANT ALL PRIVILEGES ON $DB_DATABASE.* TO 'root'@'%' IDENTIFIED BY '$DB_ROOT_PASSWORD' WITH GRANT OPTION;"
 
 	mysql -u root -e "FLUSH PRIVILEGES;"
-# fi
+fi
 
 # Arrete le service
 service mariadb stop
@@ -35,4 +35,4 @@ sleep 2
 
 # Lancier mariadb pour qu'il tourne en arriere plan
 # exec mysqld_safe --bind-address=0.0.0.0
-exec mysqld_safe
+exec mysqld_safe --bind-address=0.0.0.0
